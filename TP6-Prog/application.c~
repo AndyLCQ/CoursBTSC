@@ -1,0 +1,58 @@
+void voyelles(int *p)
+{
+
+  char c;
+  int i;	/*compteur de boucle*/
+  
+  for(i=0;i<6;i++)
+  {
+    p[i]=0;
+  }
+  printf("Le programme compte les voyelles dans ce que vous avez saisi.\n");
+  printf("Entrez un texte. Finir par la touche '*' puis entrée : \n");
+  
+  do
+  {
+     c=getchar();	/*saisie du caractère en tête de la file après l'appuies sur entrée*/
+     
+     switch(c)
+     {
+	
+	case 'a' : p[0]=p[0]+1 ;break;
+	case 'e' : p[1]=p[1]+1 ;break;
+	case 'i' : p[2]=p[2]+1 ;break;
+	case 'o' : p[3]=p[3]+1 ;break;
+	case 'u' : p[4]=p[4]+1 ;break;
+	case 'y' : p[5]=p[5]+1 ;break;
+	default :;
+	
+      }
+  }
+      while(c!='*');
+}
+
+/**********************************************************************************************************************************/
+void lettres(int *p)
+{
+  char Lettre;
+  int i;	/*compteur de boucle*/
+  
+  for(i=0;i<26;i++)
+  {
+    p[i]=0;
+  }
+  printf("Le programme compte les lettres dans ce que vous avez saisi.\n");
+  printf("Entrez un texte. Finir par la touche '*' puis entrée : \n");
+  
+  do
+  {
+     Lettre=getchar();	/*saisie du caractère en tête de la file après l'appuies sur entrée*/
+     
+     i=Lettre -97;
+     p[i]=p[i]+1;
+     
+  }
+  while(Lettre!='*');
+      
+  
+}

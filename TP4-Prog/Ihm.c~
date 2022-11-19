@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include "OpeBase.h"
+
+
+char menu()
+{
+    char choix;
+    printf("Tapez :\n -'a' :pour l'addition \n -'s' : pour la soustraction \n -'m' : pour la multiplication \n -'d' : pour la division \n -'f' : pour finir le programme \n");
+    scanf("%c", &choix);
+    
+    return choix;
+}
+
+/***************************************************************************************************************************************/
+float saisieReel (char val)
+{
+    float res;
+    printf("Entrer le reel %c \n", val);
+    scanf("%f", &res);
+    getchar();
+    return res;
+}
+
+/***************************************************************************************************************************************/
+
+void traitechoix(char choix)
+{
+    float x;
+    float y;
+    float somme;
+  if (choix=='a' || choix=='s' || choix=='m' || choix=='d')
+  {
+      x=saisieReel ('x');
+      y=saisieReel ('y');
+  }
+	switch(choix)
+	{
+	    case 'a' :    
+	    somme=addition(x, y);
+	    printf("La somme est : %.2f\n",somme); break;
+    
+	    case 's' :
+	    somme=soustraction(x, y);
+	    printf("La soustraction est : %.2f\n",somme); break;
+    
+	    case 'm' :
+	    somme=multiplication(x, y);
+	    printf("La somme est : %.2f\n",somme); break;
+    
+	    case 'd' : 
+	    do
+	    {
+	      printf("Disivion par zéro interdite");
+	      y=saisieReel('y');
+	    }
+	    while(y==0)
+	      somme=division(x, y);
+	      printf("La somme est : %.2f\n",somme); break;
+
+	    case 'f' :
+	    printf("Fin de programme\n"); break;
+    
+	    default : 
+	    printf("Saisie incorrecte\n"); 
+	}
+	
+
+}
+
+/**************************************************************************************************************************************/
+
+
