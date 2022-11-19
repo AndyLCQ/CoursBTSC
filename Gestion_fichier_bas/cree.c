@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+int main()
+{
+	int des;
+	char nom_fichier[20];
+	
+	/*Saisie du nom de fichier a creer*/
+	printf("Quel nom pour votre fichier a creer ?\n");
+	scanf("%s", nom_fichier);
+	
+	/*Ouverture du fichier*/
+	des=open(nom_fichier, O_CREAT | O_EXCL, 0740);
+	if(des==-1)
+	{
+		perror("Le fichier existe deja !\n");
+		exit(1);
+	}
+	else
+	{
+		printf("Le descripteur est : %d\n", des);
+	}	
+	close(des);
+	return 0;
+}

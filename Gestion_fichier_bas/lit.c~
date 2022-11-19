@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main()
+{
+    char Tampon[1000]={0};
+    char Fichier_n[20];
+    int desc;
+    int lonng;
+    
+    printf("Saisir le nom de fichier a lire :\n");
+    scanf("%s",Fichier_n);
+    desc=open(Fichier_n, O_RDONLY);
+    if(desc==-1)
+    {
+	perror("Erreur d'ouverture");
+	exit(1);
+    }
+    
+    
+    read(desc, Tampon, 1000);
+    lonng=strlen(Tampon);
+    printf("Nombre de caractere: %d\n", lonng);
+    printf("Votre texte : \n\t%s\n", Tampon);
+    close(desc);
+
+    return 0;
+}    
